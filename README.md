@@ -9,7 +9,7 @@
      
 </p>
 
-<br><br>
+<br>
 
 <ul>
     <li>Flutter</li>
@@ -28,26 +28,26 @@
 <br>
 
 <ul>
-    <li>
-        <br>
+    <br>
+    <li>    
         Flutter ▸ Aplicativo ▸ Aplicativo feito em Flutter <br>
         Flutter ▸ APK ▸ com.flutter_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 
+   <br>
    <li>
-        <br>
         Xamarin ▸ Aplicativo ▸ Aplicativo feito em Xamarin <br>
         Xamarin ▸ APK ▸ com.xamarin_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
-
+   
+   <br>
    <li>
-        <br>
         Ionic ▸ Aplicativo ▸ Aplicativo feito em Ionic <br>
         Ionic ▸ APK ▸ com.ionic_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 </ul>
 
-<br><br><br>
+<br><br>
 
 <h5>
     <strong>
