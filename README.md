@@ -1,6 +1,6 @@
 # Restzando
 
-
+<br>
 <p>
     ▸ Restzando é um aplicativo feito para <strong>realizar requisições HTTP</strong> e testar rotas em API's baseadas na arquitetura REST ou que utilizam algum verbo HTTP para a comunicação
     <br><br> 
@@ -19,31 +19,31 @@
 
 <br><br>
 
-<p>O objetivo do projeto é mostrar que não existe <strong>"MELHOR"</strong> tecnologia e sim melhores cenários para cada tecnologia. O aplicativo também surgiu de uma necessidade pessoal e como forma de estudar alguns tópicos sobre dispositivos mobile e as plataformas Android e IOs</p>
+<p>▸ O objetivo do projeto é mostrar que não existe <strong>"MELHOR"</strong> tecnologia e sim melhores cenários para cada tecnologia. O aplicativo também surgiu de uma necessidade pessoal e como forma de estudar alguns tópicos sobre dispositivos mobile e as plataformas Android e IOs</p>
 
 <br>
 
-<p>Dentro de cada pasta você pode encontrar o projeto em sua respectiva tecnologia e também seu APK: </p>
+<p>▸ Dentro de cada pasta você pode encontrar o projeto em sua respectiva tecnologia e também seu APK: </p>
 
 <br>
 
 <ul>
     <br>
     <li>    
-        Flutter ▸ Aplicativo ▸ Aplicativo feito em Flutter <br>
-        Flutter ▸ APK ▸ com.flutter_restzando.apk ▸ APK do aplicativo em Flutter.
+        <strong>Flutter</strong> ▸ Aplicativo ▸ Aplicativo feito em Flutter <br>
+        <strong>Flutter</strong> ▸ APK ▸ com.flutter_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 
    <br>
    <li>
-        Xamarin ▸ Aplicativo ▸ Aplicativo feito em Xamarin <br>
-        Xamarin ▸ APK ▸ com.xamarin_restzando.apk ▸ APK do aplicativo em Flutter.
+        <strong>Xamarin</strong> ▸ Aplicativo ▸ Aplicativo feito em Xamarin <br>
+        <strong>Xamarin</strong> ▸ APK ▸ com.xamarin_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
    
    <br>
    <li>
-        Ionic ▸ Aplicativo ▸ Aplicativo feito em Ionic <br>
-        Ionic ▸ APK ▸ com.ionic_restzando.apk ▸ APK do aplicativo em Flutter.
+       <strong>Ionic</strong> ▸ Aplicativo ▸ Aplicativo feito em Ionic <br>
+       <strong>Ionic</strong> ▸ APK ▸ com.ionic_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 </ul>
 
