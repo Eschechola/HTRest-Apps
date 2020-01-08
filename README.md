@@ -58,9 +58,9 @@
 <br><br>
 
 
-<h6>
+<h5>
     <center>
-        <strong>Lucas Eschechola</strong>
+        Lucas Eschechola
     </center>
-</h6>
+</h5>
 
