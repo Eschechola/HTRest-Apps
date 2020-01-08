@@ -57,8 +57,10 @@
 
 <br><br>
 
-<center>
-    <h6>
+
+<h6>
+    <center>
         <strong>Lucas Eschechola</strong>
-    </h6>
-</center>
+    </center>
+</h6>
+
