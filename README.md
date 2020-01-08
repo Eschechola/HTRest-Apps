@@ -3,10 +3,9 @@
 
 <p>
     ▸ Restzando é um aplicativo feito para <strong>realizar requisições HTTP</strong> e testar rotas em API's baseadas na arquitetura REST
-    
     <br><br> 
     
-    ▸ O <strong>MESMO</strong> aplicativo foi criado utilizando 3 tecnologias diferentes para desenvolvimento mobile:
+   ▸ O <strong>MESMO</strong> aplicativo foi criado utilizando 3 tecnologias diferentes para desenvolvimento mobile:
      
 </p>
 
@@ -35,12 +34,12 @@
         Flutter ▸ APK ▸ com.flutter_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 
-    <li>
+   <li>
         Xamarin ▸ Aplicativo ▸ Aplicativo feito em Xamarin <br>
         Xamarin ▸ APK ▸ com.xamarin_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
 
-    <li>
+   <li>
         Ionic ▸ Aplicativo ▸ Aplicativo feito em Ionic <br>
         Ionic ▸ APK ▸ com.ionic_restzando.apk ▸ APK do aplicativo em Flutter.
     </li>
