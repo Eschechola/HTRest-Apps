@@ -1,0 +1,360 @@
+import 'package:flutter/material.dart';
+import 'package:rest_request/widgets/colors/AppColors.dart';
+import 'package:rest_request/widgets/menu/drawerMenu.dart';
+
+
+void main() => runApp(Index());
+
+class Index extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _Index();
+  }
+}
+
+class _Index extends State<Index> {
+  static List verbsHTTP = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'CONNECT', 'OPTIONS', 'TRACE'];
+  String selectedHTTP = verbsHTTP[0];
+  Color selectedHTTPColor = Color.fromRGBO(17, 94, 0, 1);
+  List<DropdownMenuItem> verbsHTTPItems;
+
+
+  // INITSTATE //
+  @override
+  initState() {
+    super.initState();
+    verbsHTTPItems = addVerbsInList();
+  }
+  // INITSTATE //
+
+
+  // addVerbsInList //
+  //adiciona os verbos da lista string em uma lista de
+  //DropDownMenuItem
+   List<DropdownMenuItem<String>> addVerbsInList(){
+     
+     //lista que será retornada ao executar o programa
+     List<DropdownMenuItem<String>> verbs = new List();
+
+    //foreach que irá percorrer a lista de verbos e adiciona - lo
+    //na lista verbs
+    for(String verb in verbsHTTP){
+      
+      verbs.add(
+        new DropdownMenuItem(
+          value: verb,
+          child: 
+          Padding(
+            padding: EdgeInsets.all(5),
+            child:
+            Text(
+              verb,
+            )
+          ),
+        )
+      );
+    }
+    return verbs;
+  }
+  // addVerbsInList //
+
+
+
+
+  // changedDropVerbItem //
+  void changedDropVerbItem(String selectedVerb) {
+    //altera o valor da variavel e altera na tela
+    setState(() {
+      selectedHTTP = selectedVerb;
+    });
+  }
+  // changedDropVerbItem //
+
+
+
+  // changedDropVerbItem //
+  //função para alterar a cor de acordo com o verbo selecionado
+  void changedColorItem(String selectedVerb) {
+    Color color;
+
+    switch(selectedVerb){
+      case 'GET':
+        color = Color.fromRGBO(17, 94, 0, 1);
+        break;
+
+      case 'POST':
+        color = Color.fromRGBO(0, 5, 107, 1);
+        break;
+
+      case 'PUT':
+        color = Color.fromRGBO(65, 0, 112, 1);
+        break;
+
+      case 'DELETE':
+        color = Color.fromRGBO(112, 0, 15, 1);
+        break;
+
+      case 'PATCH':
+        color = Color.fromRGBO(0, 112, 112, 1);
+        break;
+
+      case 'CONNECT':
+        color = Color.fromRGBO(156, 83, 0, 1);
+        break;
+
+      case 'OPTIONS':
+        color = Color.fromRGBO(120, 149, 106, 1);
+        break;
+
+      case 'TRACE':
+        color = Color.fromRGBO(112, 0, 88, 1);
+        break;
+    }
+
+    //altera o valor da variavel color e altera a cor na tela
+    setState(() {
+      selectedHTTPColor = color;
+    });
+  }
+  // changedDropVerbItem //
+
+ 
+  // BUILD //
+  @override
+  Widget build(BuildContext context) {
+        return Scaffold(
+          appBar:  AppBar(
+            title: Text("HTRest"),
+            elevation: 0.0,
+          ),
+          
+          // INICIO BODY  //
+    
+          body: Stack(
+            children: <Widget>[
+              SingleChildScrollView(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  color: AppColors.primaryColor,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: MediaQuery.of(context).size.width*0.9,
+                        height: MediaQuery.of(context).size.height,
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: Column(
+                          children: <Widget>[
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.1
+                                ),
+
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child:
+                                    Text(
+                                      "Insert URL:",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColors.secondaryColor
+                                      ),
+                                    ),
+                                ), 
+                              ),
+
+
+                              Padding(
+                              padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.width*0.05
+                              ),
+                              child: 
+                                TextField(
+                                  autofocus: true,
+                                  enabled: false,
+                                  cursorColor: AppColors.secondaryColor,
+                                  keyboardType: TextInputType.text,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontFamily: "Arial",
+                                    fontSize: 20,
+                                    color: AppColors.secondaryColor
+                                  ),
+
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: AppColors.thirdColor,
+                                    contentPadding: EdgeInsets.all(10),
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey
+                                    ),
+
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent
+                                        ),
+                                      ),
+                                  ),
+                                ),
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.1
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child:
+                                    Text(
+                                      "Method:",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColors.secondaryColor
+                                      ),
+                                    ),
+                                )
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.05
+                                ),
+                                child:Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: selectedHTTPColor,
+                                    borderRadius: BorderRadius.all(Radius.circular(3.0))
+                                  ),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        left: 10,
+                                        top: 0,
+                                        bottom: 0,
+                                        right: 10
+                                      ),
+                                      child:
+                                      DropdownButtonFormField(
+                                        isDense: false,
+                                        iconSize: 35,
+                                        icon: Icon(
+                                          Icons.arrow_drop_down,
+                                          color: AppColors.optionDropColor,
+                                        ),
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none
+                                        ),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.optionDropColor,
+                                        ),
+                                        value: selectedHTTP,
+                                        items: verbsHTTPItems,
+                                        onChanged: (selectedHTTP) {
+                                          changedDropVerbItem(selectedHTTP);
+                                          changedColorItem(selectedHTTP);
+                                        }
+                                    )
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height*0.73,
+                ),
+                child: Center( 
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left:15,
+                        ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+                          height: MediaQuery.of(context).size.width*0.15,
+                          decoration: BoxDecoration(
+                            color: selectedHTTPColor,
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width))
+                          ),
+                          
+                          child: Icon(
+                            Icons.call_made,
+                            size: 35,
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width*0.11,
+                          right: MediaQuery.of(context).size.width*0.11,
+                        ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width*0.4,
+                          height: MediaQuery.of(context).size.width*0.15,
+                          decoration: BoxDecoration(
+                            color: selectedHTTPColor,
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width))
+                          ),
+                          
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Send Request",
+                              style: TextStyle(
+                                color: AppColors.secondaryColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
+                              )
+                            ),
+                          ) 
+                        ),
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 0,
+                          right: 15
+                        ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width*0.15,
+                          height: MediaQuery.of(context).size.width*0.15,
+                          decoration: BoxDecoration(
+                            color: selectedHTTPColor,
+                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width))
+                          ),
+
+                          child: Icon(
+                            Icons.assignment,
+                            size: 35,
+                            color: AppColors.secondaryColor,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+
+        //     MENU LATERAL     //
+        drawer: new DrawerMenu().returnMenu(context)
+        //     MENU LATERAL     //
+      
+      );
+  }
+}
