@@ -522,10 +522,11 @@ class _Index extends State<Index> {
                                                           color: Colors.transparent
                                                         ),
                                                       ),
-                                                      child: Icon(
+                                                      child: 
+                                                      Icon(
                                                         Icons.cancel,
                                                         color: AppColors.secondaryColor,
-                                                        size:30,
+                                                        size:23,
                                                       ),
                                                       onPressed: () {},
                                                     ), 
@@ -563,7 +564,7 @@ class _Index extends State<Index> {
                           left:15,
                         ),
                         child: Container(
-                          width: MediaQuery.of(context).size.width*0.15,
+                          width: MediaQuery.of(context).size.width*0.14,
                           height: MediaQuery.of(context).size.width*0.15,
                           decoration: BoxDecoration(
                             color: selectedHTTPColor,
