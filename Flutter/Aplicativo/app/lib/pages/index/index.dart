@@ -17,6 +17,9 @@ class _Index extends State<Index> {
   String selectedHTTP = verbsHTTP[0];
   Color selectedHTTPColor = Color.fromRGBO(17, 94, 0, 1);
   List<DropdownMenuItem> verbsHTTPItems;
+  
+  List<String> typesOfHeader = ['content-type'];
+  List<String> valuesOfHeader = ['application/json'];
 
 
   // INITSTATE //
@@ -130,7 +133,8 @@ class _Index extends State<Index> {
           
           // INICIO BODY  //
     
-          body: Stack(
+          body:
+          Stack(
             children: <Widget>[
               SingleChildScrollView(
                 child: Container(
@@ -167,6 +171,8 @@ class _Index extends State<Index> {
                               ),
 
 
+
+
                               Padding(
                               padding: EdgeInsets.only(
                                 top: MediaQuery.of(context).size.width*0.05
@@ -201,6 +207,11 @@ class _Index extends State<Index> {
                                 ),
                               ),
 
+
+
+
+
+
                               Padding(
                                 padding: EdgeInsets.only(
                                   top: MediaQuery.of(context).size.width*0.1
@@ -218,6 +229,10 @@ class _Index extends State<Index> {
                                     ),
                                 )
                               ),
+
+
+
+
 
                               Padding(
                                 padding: EdgeInsets.only(
@@ -262,6 +277,268 @@ class _Index extends State<Index> {
                                   ),
                                 ),
                               ),
+
+
+
+
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.1
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child:
+                                    Text(
+                                      "Headers:",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColors.secondaryColor
+                                      ),
+                                    ),
+                                )
+                              ),
+
+
+
+
+
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                  padding: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.width*0.05,
+                                    ),
+                                  child:
+                                    Container(
+                                      width: MediaQuery.of(context).size.width*0.43,
+                                        child: 
+                                          TextField(
+                                            autofocus: true,
+                                            enabled: false,
+                                            cursorColor: AppColors.secondaryColor,
+                                            keyboardType: TextInputType.text,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontFamily: "Arial",
+                                              fontSize: 20,
+                                              color: AppColors.secondaryColor
+                                            ),
+
+                                            decoration: InputDecoration(
+                                              filled: true,
+                                              fillColor: AppColors.thirdColor,
+                                              contentPadding: EdgeInsets.all(10),
+                                              hintStyle: TextStyle(
+                                                color: Colors.grey
+                                              ),
+
+                                              border: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent
+                                                  ),
+                                                ),
+                                            ),
+                                        ),
+                                  ),
+                                ),
+
+
+
+
+
+
+
+
+
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.width*0.05,
+                                    left: MediaQuery.of(context).size.width*0.03,
+                                    ),
+                                  child:
+                                    Container(
+                                      width: MediaQuery.of(context).size.width*0.43,
+                                        child: 
+                                          TextField(
+                                            autofocus: true,
+                                            enabled: false,
+                                            cursorColor: AppColors.secondaryColor,
+                                            keyboardType: TextInputType.text,
+                                            textAlign: TextAlign.left,
+                                            style: TextStyle(
+                                              fontFamily: "Arial",
+                                              fontSize: 20,
+                                              color: AppColors.secondaryColor
+                                            ),
+
+                                            decoration: InputDecoration(
+                                              filled: true,
+                                              fillColor: AppColors.thirdColor,
+                                              contentPadding: EdgeInsets.all(10),
+                                              hintStyle: TextStyle(
+                                                color: Colors.grey
+                                              ),
+
+                                              border: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent
+                                                  ),
+                                                ),
+                                            ),
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+
+
+
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.height*0.02,
+                              ),
+                              child:
+                                Container(
+                                  width: MediaQuery.of(context).size.width*0.9,
+                                  height: MediaQuery.of(context).size.height*0.07,
+
+                                  child: RaisedButton(
+                                    hoverColor: selectedHTTPColor,
+                                    color: selectedHTTPColor,
+                                    highlightColor: selectedHTTPColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      side: BorderSide(
+                                        color: Colors.transparent
+                                      ),
+                                    ),
+                                    child: Text(
+                                      "Add Header",
+                                      style: TextStyle(
+                                        color: AppColors.secondaryColor,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+                                      )
+                                    ), 
+                                    onPressed: () {},
+                                  ), 
+                                ),
+                            ),
+
+
+
+
+
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.height*0.02,
+                              ),
+
+                              child: Container(
+                                width: MediaQuery.of(context).size.width*0.9,
+                                height: MediaQuery.of(context).size.height*0.3,
+                                decoration: BoxDecoration(
+                                  color: AppColors.thirdColor,
+                                  borderRadius: BorderRadius.all(Radius.circular(6))
+                                ),
+
+                                child:
+                                Container(
+                                  child:
+                                    ListView.builder(
+                                      itemCount: typesOfHeader.length,
+                                      itemBuilder: (BuildContext context, int index) {
+                                        return Column(
+                                          children: <Widget>[
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                top:  MediaQuery.of(context).size.height*0.03,
+                                                left:  10,
+                                                right: 10
+                                              ),
+                                              child:
+                                                Container(
+                                                  color: Colors.transparent,
+                                                  child: Row(
+                                                    children: <Widget>[
+                                                      Container(
+                                                        width: MediaQuery.of(context).size.width*0.4,
+                                                        height: MediaQuery.of(context).size.height*0.03,
+
+                                                        child: Center(
+                                                          child:
+                                                            Text(
+                                                              typesOfHeader[index],
+                                                              style: TextStyle(
+                                                                color: AppColors.secondaryColor,
+                                                                fontSize: 22,
+                                                              )
+                                                            ),
+                                                        ),
+                                                      ),
+
+
+
+                                                      Container(
+                                                        width: MediaQuery.of(context).size.width*0.4,
+                                                        height: MediaQuery.of(context).size.height*0.03,
+
+                                                        child: Center(
+                                                          child: 
+                                                          Text(
+                                                            valuesOfHeader[index],
+                                                            style: TextStyle(
+                                                              color: AppColors.secondaryColor,
+                                                              fontSize: 22,
+                                                            )
+                                                          )
+                                                        )
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+
+                                            Center(
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: MediaQuery.of(context).size.height*0.05,
+                                                ),
+                                                child:
+                                                  Container(
+                                                    width: MediaQuery.of(context).size.width*0.15,
+                                                    height: MediaQuery.of(context).size.width*0.15,
+
+                                                    child: RaisedButton(
+                                                      elevation: 0,
+                                                      hoverColor: selectedHTTPColor,
+                                                      color: selectedHTTPColor,
+                                                      highlightColor: selectedHTTPColor,
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width),
+                                                        side: BorderSide(
+                                                          color: Colors.transparent
+                                                        ),
+                                                      ),
+                                                      child: Icon(
+                                                        Icons.cancel,
+                                                        color: AppColors.secondaryColor,
+                                                        size:30,
+                                                      ),
+                                                      onPressed: () {},
+                                                    ), 
+                                                  ),
+                                              ),  
+                                            )
+                                          ]
+                                        );
+                                      }
+                                    )
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -269,7 +546,11 @@ class _Index extends State<Index> {
                   ),
                 ),
               ),
-              
+
+
+
+
+              // MENU FIXO //
               Padding(
                 padding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height*0.73,
@@ -348,6 +629,8 @@ class _Index extends State<Index> {
                   ),
                 ),
               )
+            // MENU FIXO //
+            
             ],
           ),
 
