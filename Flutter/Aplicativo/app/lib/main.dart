@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rest_request/widgets/colors/AppColors.dart';
 import 'package:rest_request/pages/index/index.dart';
+import 'package:load/load.dart';
 
 
 void main() => runApp(MyApp());
@@ -54,8 +56,36 @@ class _MyHomePageState extends State<MyHomePage> {
         color: AppColors.primaryColor,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Center(
-        ),
+        child: Stack(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.2
+              ),
+              child: Align(
+                alignment: Alignment.center,
+                child: 
+                  CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.thirdColor),
+                      backgroundColor: Colors.grey
+                    ),
+                ),
+            ),
+
+            Align(
+            alignment: Alignment.center,
+            child: 
+              Text(
+                "Restzando",
+                style: TextStyle(
+                  color: AppColors.secondaryColor,
+                  fontSize: 40,
+                  fontFamily: 'Arial'
+                ),
+              )
+            ),
+          ],
+        )
       ),
     );
   }

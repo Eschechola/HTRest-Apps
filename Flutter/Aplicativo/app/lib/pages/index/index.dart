@@ -13,13 +13,30 @@ class Index extends StatefulWidget {
 }
 
 class _Index extends State<Index> {
+  // DROPDOWN DE VERBS HTTP // 
+  
   static List verbsHTTP = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'CONNECT', 'OPTIONS', 'TRACE'];
   String selectedHTTP = verbsHTTP[0];
   Color selectedHTTPColor = Color.fromRGBO(17, 94, 0, 1);
   List<DropdownMenuItem> verbsHTTPItems;
   
+  // DROPDOWN DE VERBS HTTP //
+
+  
+  
+  // DROPDOWN DE BODY CONTENT //
+  
+  static List bodyContent = ['application/json', 'application/xml'];
+  String selectedContent = bodyContent[0];
+  List<DropdownMenuItem> listBodyContent;
+  
+  // DROPDOWN DE BODY CONTENT //
+
+
+  
   List<String> typesOfHeader = ['content-type'];
   List<String> valuesOfHeader = ['application/json'];
+
 
 
   // INITSTATE //
@@ -27,8 +44,45 @@ class _Index extends State<Index> {
   initState() {
     super.initState();
     verbsHTTPItems = addVerbsInList();
+    listBodyContent = addBodyContentInList();
   }
   // INITSTATE //
+
+
+
+  // addBodyContentInList //
+  //adiciona os verbos da lista string em uma lista de
+  //DropDownMenuItem
+   List<DropdownMenuItem<String>> addBodyContentInList(){
+     
+     //lista que será retornada ao executar o programa
+     List<DropdownMenuItem<String>> bodyContents = new List();
+
+    //foreach que irá percorrer a lista de verbos e adiciona - lo
+    //na lista verbs
+    for(String body in bodyContent){
+      
+      print(body+"\n");
+
+      bodyContents.add(
+        new DropdownMenuItem(
+          value: body,
+          child: 
+          Padding(
+            padding: EdgeInsets.all(5),
+            child:
+            Text(
+              body,
+            )
+          ),
+        )
+      );
+    }
+
+    return bodyContents;
+  }
+  // addBodyContentInList //
+
 
 
   // addVerbsInList //
@@ -69,6 +123,16 @@ class _Index extends State<Index> {
     //altera o valor da variavel e altera na tela
     setState(() {
       selectedHTTP = selectedVerb;
+    });
+  }
+  // changedDropVerbItem //
+
+  
+  // changedContentItem //
+  void changedContentItem(String selectedBody) {
+    //altera o valor da variavel e altera na tela
+    setState(() {
+      selectedContent = selectedBody;
     });
   }
   // changedDropVerbItem //
@@ -127,7 +191,7 @@ class _Index extends State<Index> {
   Widget build(BuildContext context) {
         return Scaffold(
           appBar:  AppBar(
-            title: Text("HTRest"),
+            title: Text("Restzando"),
             elevation: 0.0,
           ),
           
@@ -139,13 +203,13 @@ class _Index extends State<Index> {
               SingleChildScrollView(
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
+                  height: MediaQuery.of(context).size.height*1.7,
                   color: AppColors.primaryColor,
                   child: Column(
                     children: <Widget>[
                       Container(
                         width: MediaQuery.of(context).size.width*0.9,
-                        height: MediaQuery.of(context).size.height,
+                        height: MediaQuery.of(context).size.height*1.7,
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
@@ -153,7 +217,7 @@ class _Index extends State<Index> {
                           children: <Widget>[
                               Padding(
                                 padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.width*0.1
+                                  top: MediaQuery.of(context).size.width*0.09
                                 ),
 
                                 child: Align(
@@ -179,8 +243,8 @@ class _Index extends State<Index> {
                               ),
                               child: 
                                 TextField(
-                                  autofocus: true,
-                                  enabled: false,
+                                  autofocus: false,
+                                  enabled: true,
                                   cursorColor: AppColors.secondaryColor,
                                   keyboardType: TextInputType.text,
                                   textAlign: TextAlign.left,
@@ -214,7 +278,7 @@ class _Index extends State<Index> {
 
                               Padding(
                                 padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.width*0.1
+                                  top: MediaQuery.of(context).size.width*0.09
                                 ),
                                 child: Align(
                                   alignment: Alignment.topLeft,
@@ -283,7 +347,7 @@ class _Index extends State<Index> {
 
                               Padding(
                                 padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.width*0.1
+                                  top: MediaQuery.of(context).size.width*0.09
                                 ),
                                 child: Align(
                                   alignment: Alignment.topLeft,
@@ -314,8 +378,8 @@ class _Index extends State<Index> {
                                       width: MediaQuery.of(context).size.width*0.43,
                                         child: 
                                           TextField(
-                                            autofocus: true,
-                                            enabled: false,
+                                            autofocus: false,
+                                            enabled: true,
                                             cursorColor: AppColors.secondaryColor,
                                             keyboardType: TextInputType.text,
                                             textAlign: TextAlign.left,
@@ -361,8 +425,8 @@ class _Index extends State<Index> {
                                       width: MediaQuery.of(context).size.width*0.43,
                                         child: 
                                           TextField(
-                                            autofocus: true,
-                                            enabled: false,
+                                            autofocus: false,
+                                            enabled: true,
                                             cursorColor: AppColors.secondaryColor,
                                             keyboardType: TextInputType.text,
                                             textAlign: TextAlign.left,
@@ -504,7 +568,7 @@ class _Index extends State<Index> {
                                             Center(
                                               child: Padding(
                                                 padding: EdgeInsets.only(
-                                                  top: MediaQuery.of(context).size.height*0.05,
+                                                  top: MediaQuery.of(context).size.height*0.001,
                                                 ),
                                                 child:
                                                   Container(
@@ -513,9 +577,9 @@ class _Index extends State<Index> {
 
                                                     child: RaisedButton(
                                                       elevation: 0,
-                                                      hoverColor: selectedHTTPColor,
-                                                      color: selectedHTTPColor,
-                                                      highlightColor: selectedHTTPColor,
+                                                      hoverColor: Colors.transparent,
+                                                      color: Colors.transparent,
+                                                      highlightColor: Colors.transparent,
                                                       shape: RoundedRectangleBorder(
                                                         borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width),
                                                         side: BorderSide(
@@ -540,6 +604,119 @@ class _Index extends State<Index> {
                                 ),
                               ),
                             ),
+                            
+
+
+
+
+
+                            Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.09
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topLeft,
+                                  child:
+                                    Text(
+                                      "Body:",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColors.secondaryColor
+                                      ),
+                                    ),
+                                )
+                              ),
+
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.width*0.05
+                                ),
+                                child:Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                    color: selectedHTTPColor,
+                                    borderRadius: BorderRadius.all(Radius.circular(3.0))
+                                  ),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        left: 10,
+                                        top: 0,
+                                        bottom: 0,
+                                        right: 10
+                                      ),
+                                      child:
+                                      DropdownButtonFormField(
+                                        isDense: false,
+                                        iconSize: 35,
+                                        icon: Icon(
+                                          Icons.arrow_drop_down,
+                                          color: AppColors.optionDropColor,
+                                        ),
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none
+                                        ),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.optionDropColor,
+                                        ),
+                                        value: selectedContent,
+                                        items: listBodyContent,
+                                        onChanged: (selectedContent) {
+                                          changedContentItem(selectedContent);
+                                        }
+                                    )
+                                  ),
+                                ),
+                              ),
+
+
+
+                          Padding(
+                              padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.width*0.05
+                              ),
+                              child:
+                              Container(
+                                height: MediaQuery.of(context).size.height*0.4,
+                                child: 
+                                TextFormField(
+                                  initialValue:  """{
+
+}""",
+                                  maxLines: 40,
+                                  autofocus: false,
+                                  enabled: true,
+                                  cursorColor: AppColors.secondaryColor,
+                                  keyboardType: TextInputType.multiline,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontFamily: "Arial",
+                                    fontSize: 20,
+                                    color: AppColors.secondaryColor
+                                  ),
+
+                                  decoration: InputDecoration(
+                                    isDense: true, 
+                                    filled: true,
+                                    fillColor: AppColors.thirdColor,
+                                    contentPadding: EdgeInsets.all(20),
+                                    hintStyle: TextStyle(
+                                      color: Colors.grey
+                                    ),
+
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent
+                                        ),
+                                      ),
+                                  ),
+                                ),
+                              )
+                            ),
+
+
                           ],
                         ),
                       ),
@@ -549,6 +726,7 @@ class _Index extends State<Index> {
               ),
 
 
+              
 
 
               // MENU FIXO //
@@ -559,30 +737,11 @@ class _Index extends State<Index> {
                 child: Center( 
                   child: Row(
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left:15,
-                        ),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width*0.14,
-                          height: MediaQuery.of(context).size.width*0.15,
-                          decoration: BoxDecoration(
-                            color: selectedHTTPColor,
-                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width))
-                          ),
-                          
-                          child: Icon(
-                            Icons.call_made,
-                            size: 35,
-                            color: AppColors.secondaryColor,
-                          ),
-                        ),
-                      ),
 
                       Padding(
                         padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width*0.11,
-                          right: MediaQuery.of(context).size.width*0.11,
+                          left: MediaQuery.of(context).size.width*0.3,
+                          right: MediaQuery.of(context).size.width*0.3,
                         ),
                         child: Container(
                           width: MediaQuery.of(context).size.width*0.4,
@@ -605,27 +764,6 @@ class _Index extends State<Index> {
                           ) 
                         ),
                       ),
-
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 0,
-                          right: 15
-                        ),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width*0.15,
-                          height: MediaQuery.of(context).size.width*0.15,
-                          decoration: BoxDecoration(
-                            color: selectedHTTPColor,
-                            borderRadius: BorderRadius.all(Radius.circular(MediaQuery.of(context).size.width))
-                          ),
-
-                          child: Icon(
-                            Icons.assignment,
-                            size: 35,
-                            color: AppColors.secondaryColor,
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ),
